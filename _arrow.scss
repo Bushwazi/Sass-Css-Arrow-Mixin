@@ -1,0 +1,26 @@
+@mixin arrow($arrowdirection: left, $arrowsize: 5px, $arrowcolor: green) {
+    /*
+     * Creates css arrows
+     * direction options: top, right, bottom, left. (to match border-'direction' of css)
+     * Example @include arrow(bottom, 12px, #f00);
+     */
+    width: 0;
+    height: 0;
+    @if $arrowdirection == top {
+        border-left: $arrowsize solid transparent;
+        border-right: $arrowsize solid transparent;
+        border-bottom: $arrowsize solid $arrowcolor;
+    } @else if $arrowdirection == right {
+        border-top: $arrowsize solid transparent;
+        border-bottom: $arrowsize solid transparent;
+        border-left: $arrowsize solid $arrowcolor;
+    } @else if $arrowdirection == bottom {
+        border-left: $arrowsize solid transparent;
+        border-right: $arrowsize solid transparent;
+        border-top: $arrowsize solid $arrowcolor;
+    } @else {
+        border-top: $arrowsize solid transparent;
+        border-bottom: $arrowsize solid transparent;
+        border-right: $arrowsize solid $arrowcolor;
+    }
+}
